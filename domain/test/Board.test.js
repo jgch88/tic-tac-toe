@@ -18,3 +18,12 @@ describe('board can be initialised to m x n', () => {
   });
 });
 
+describe('placeSymbol() preconditions', () => {
+  it ('symbol must be a string', () => {
+    const board = new Board();
+    expect(() => {
+      board.placeSymbol(1, 0)
+    }).toThrow('Use a string for a symbol.');
+  })
+
+})
