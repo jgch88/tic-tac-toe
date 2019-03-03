@@ -14,6 +14,9 @@ export default class Board {
     // preconditions:
     // symbol is a string
     // position is between 0 and 8
+    if (typeof symbol !== 'string') {
+      throw new Error('Use a string for a symbol.');
+    }
     this._tiles[position] = symbol;
   }
 }
