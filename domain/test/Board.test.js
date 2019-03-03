@@ -113,4 +113,9 @@ describe('winning conditions', () => {
     board.placeSymbol(symbol, 8);
     expect(board.isWinner(symbol)).toBe(true);
   });
+
+  it('no symbols placed is not a winning combination', () => {
+    const board = new Board();
+    expect(board.isWinner('x')).toBe(false);
+  })
 })

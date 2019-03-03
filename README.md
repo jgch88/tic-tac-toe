@@ -10,13 +10,12 @@ Flexibility
 
 Domain Interfaces
 - Board
-  - setShape(shape = 3x3)
+  - DONE - get tiles()
+  - DONE - placeSymbol(symbol, position)
+  - DONE - isWinner(symbol) // union - find? use a strategy pattern and optimize the algorithms to be more scalable later
   - addPlayer(symbol)
-  - placeSymbol(symbol, position)
   - defineWinningFormations(listOfFormations)
-  - hasWinner() // union-find?
-  - getAllSymbolPositions()
-  - getSymbolPositions(symbol)
+  - setShape(shape = 3x3)
 - Symbol: character
 - Player
   - get Id()
@@ -28,4 +27,4 @@ View
 App (Game Engine)
 - Initialises Board: new Board()
 - Add Player to list of players: [new Player()]
-- Lets players play if it is a valid turn
+- Lets players play if it is a valid turn/valid player
