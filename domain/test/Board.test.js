@@ -1,3 +1,5 @@
+import Board from '../Board.js';
+
 describe('board can be initialised to m x n', () => {
   it('has 9 tiles on a 3 x 3 board', () => {
     const board = new Board();
