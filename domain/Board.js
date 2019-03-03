@@ -9,4 +9,11 @@ export default class Board {
   get tiles() {
     return this._tiles;
   }
+
+  placeSymbol(symbol, position) {
+    // preconditions:
+    // symbol is a string
+    // position is between 0 and 8
+    this._tiles[position] = symbol;
+  }
 }

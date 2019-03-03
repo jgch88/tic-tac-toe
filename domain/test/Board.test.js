@@ -17,3 +17,4 @@ describe('board can be initialised to m x n', () => {
     expect(board.tiles[0]).toBe('x');
   });
 });
+
