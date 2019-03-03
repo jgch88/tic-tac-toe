@@ -38,4 +38,79 @@ describe('placeSymbol() preconditions', () => {
       board.placeSymbol('o', 1);
     }).not.toThrow();
   });
+});
+
+describe('winning conditions', () => {
+  // primitive implementation
+  it('symbols in the top horizontal line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 0);
+    board.placeSymbol(symbol, 1);
+    board.placeSymbol(symbol, 2);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols in the middle horizontal line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 3);
+    board.placeSymbol(symbol, 4);
+    board.placeSymbol(symbol, 5);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols in the bottom horizontal line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 6);
+    board.placeSymbol(symbol, 7);
+    board.placeSymbol(symbol, 8);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols in the left vertical line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 0);
+    board.placeSymbol(symbol, 3);
+    board.placeSymbol(symbol, 6);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols in the left vertical line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 1);
+    board.placeSymbol(symbol, 4);
+    board.placeSymbol(symbol, 7);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols in the left vertical line are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 2);
+    board.placeSymbol(symbol, 5);
+    board.placeSymbol(symbol, 8);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols along the / diagonal are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 2);
+    board.placeSymbol(symbol, 4);
+    board.placeSymbol(symbol, 6);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
+
+  it('symbols along the \\ diagonal are a winning combination', () => {
+    const board = new Board();
+    const symbol = 'x';
+    board.placeSymbol(symbol, 0);
+    board.placeSymbol(symbol, 4);
+    board.placeSymbol(symbol, 8);
+    expect(board.isWinner(symbol)).toBe(true);
+  });
 })
