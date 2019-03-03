@@ -24,4 +24,32 @@ export default class Board {
     }
     this._tiles[position] = symbol;
   }
+
+  isWinner(symbol) {
+    if (this._tiles[0] === symbol && this._tiles[1] === symbol && this._tiles[2] === symbol) {
+      return true;
+    }
+    if (this._tiles[3] === symbol && this._tiles[4] === symbol && this._tiles[5] === symbol) {
+      return true;
+    }
+    if (this._tiles[6] === symbol && this._tiles[7] === symbol && this._tiles[8] === symbol) {
+      return true;
+    }
+    if (this._tiles[0] === symbol && this._tiles[3] === symbol && this._tiles[6] === symbol) {
+      return true;
+    }
+    if (this._tiles[1] === symbol && this._tiles[4] === symbol && this._tiles[7] === symbol) {
+      return true;
+    }
+    if (this._tiles[2] === symbol && this._tiles[5] === symbol && this._tiles[8] === symbol) {
+      return true;
+    }
+    if (this._tiles[2] === symbol && this._tiles[4] === symbol && this._tiles[6] === symbol) {
+      return true;
+    }
+    if (this._tiles[0] === symbol && this._tiles[4] === symbol && this._tiles[8] === symbol) {
+      return true;
+    }
+    return false;
+  }
 }
