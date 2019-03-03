@@ -78,7 +78,7 @@ describe('winning conditions', () => {
     expect(board.isWinner(symbol)).toBe(true);
   });
 
-  it('symbols in the left vertical line are a winning combination', () => {
+  it('symbols in the middle vertical line are a winning combination', () => {
     const board = new Board();
     const symbol = 'x';
     board.placeSymbol(symbol, 1);
@@ -87,7 +87,7 @@ describe('winning conditions', () => {
     expect(board.isWinner(symbol)).toBe(true);
   });
 
-  it('symbols in the left vertical line are a winning combination', () => {
+  it('symbols in the right vertical line are a winning combination', () => {
     const board = new Board();
     const symbol = 'x';
     board.placeSymbol(symbol, 2);
