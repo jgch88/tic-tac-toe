@@ -11,6 +11,9 @@ export default class Engine {
   }
 
   registerPlayer(symbol) {
+    if (typeof symbol !== 'string') {
+      throw new Error('Players must be represented by strings.');
+    }
     this._players.add(symbol);
   }
 
