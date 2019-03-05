@@ -64,6 +64,9 @@ describe('Engine', () => {
         expect(() => {
           engine.play('x', 0);
         }).toThrow(`It is not Player 'x''s turn!`);
+        expect(() => {
+          engine.play('o', 0);
+        }).not.toThrow();
       });
     });
   });
