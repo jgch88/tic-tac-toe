@@ -20,4 +20,8 @@ export default class Engine {
   get players() {
     return this._players;
   }
+
+  whoseTurn() {
+    throw new Error('There are no players!');
+  }
 }
