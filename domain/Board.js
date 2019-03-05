@@ -22,6 +22,10 @@ export default class Board {
     if (position < 0 || position >= boardSize) {
       throw new Error('You can only place symbols at positions 0 to 8.');
     }
+    if (this._tiles[position]) {
+      throw new Error(`Position ${position} already contains the symbol '${symbol}'.`);
+    }
+
     this._tiles[position] = symbol;
   }
 

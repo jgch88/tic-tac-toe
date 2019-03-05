@@ -92,11 +92,11 @@ describe('Engine', () => {
         engine.registerPlayer('x');
         engine.play('o', 0);
         expect(engine.whoseTurn).toBe('x');
-        engine.play('x', 0);
+        engine.play('x', 1);
         expect(engine.whoseTurn).toBe('o');
-        engine.play('o', 0);
+        engine.play('o', 2);
         expect(engine.whoseTurn).toBe('x');
-        engine.play('x', 0);
+        engine.play('x', 3);
         expect(engine.whoseTurn).toBe('o');
       });
     });
