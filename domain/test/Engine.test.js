@@ -47,5 +47,15 @@ describe('Engine', () => {
         expect(engine.whoseTurn()).toBe('o');
       });
     });
+
+    describe('playing', () => {
+      it('only registered players can play', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        expect(() => {
+          engine.play('x', 0);
+        }).toThrow(`Player 'x' is not registered.`);
+      });
+    });
   });
 });
