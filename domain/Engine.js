@@ -31,10 +31,10 @@ export default class Engine {
     }
 
     if (!this._whoseTurn) {
-      this._whoseTurn = this.players.values().next().value;
+      this._whoseTurn = 0;
     }
     
-    return this._whoseTurn;
+    return this._players[this._whoseTurn];
   }
 
   play(symbol, position) {
@@ -47,6 +47,6 @@ export default class Engine {
     }
 
     this._board.placeSymbol(symbol, position);
-    this._whoseTurn = this.players.values().next().value;
+    this._whoseTurn += 1;
   }
 }
