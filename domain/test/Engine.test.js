@@ -75,6 +75,14 @@ describe('Engine', () => {
         engine.play('o', 0);
         expect(engine.board[0]).toBe('o');
       });
+
+      it('after playing, turn moves to the next player', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        engine.registerPlayer('x');
+        engine.play('o', 0);
+        expect(engine.whoseTurn).toBe('x');
+      });
     });
   });
 });
