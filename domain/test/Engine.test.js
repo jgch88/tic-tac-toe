@@ -13,4 +13,11 @@ describe('Engine', () => {
     engine.registerPlayer('x');
     expect(engine.players).toEqual(new Set(['x']));
   });
+
+  it('does not register duplicate symbols', () => {
+    const engine = new Engine();
+    engine.registerPlayer('x');
+    engine.registerPlayer('x');
+    expect(engine.players).toEqual(new Set(['x']));
+  })
 });
