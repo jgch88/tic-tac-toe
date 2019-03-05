@@ -33,11 +33,19 @@ describe('Engine', () => {
   });
 
   describe('game in progress', () => {
-    it('cannot show whose turn it is if no players are registered', () => {
-      const engine = new Engine();
-      expect(() => {
-        engine.whoseTurn();
-      }).toThrow('There are no players!');
-    });
+    describe('checking whose turn it is', () => {
+      it('cannot show whose turn it is if no players are registered', () => {
+        const engine = new Engine();
+        expect(() => {
+          engine.whoseTurn();
+        }).toThrow('There are no players!');
+      });
+      
+      it('sets the first player to register as the first turn', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        expect(engine.whoseTurn()).toBe('o');
+      });
+    })
   });
 });
