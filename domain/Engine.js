@@ -4,7 +4,7 @@ export default class Engine {
   constructor() {
     this._board = new Board();
     this._players = [];
-    this._whoseTurn;
+    this._whoseTurnIndex;
   }
 
   get board() {
@@ -30,11 +30,11 @@ export default class Engine {
       throw new Error('There are no players!');
     }
 
-    if (!this._whoseTurn) {
-      this._whoseTurn = 0;
+    if (!this._whoseTurnIndex) {
+      this._whoseTurnIndex = 0;
     }
     
-    return this._players[this._whoseTurn];
+    return this._players[this._whoseTurnIndex];
   }
 
   play(symbol, position) {
@@ -47,6 +47,14 @@ export default class Engine {
     }
 
     this._board.placeSymbol(symbol, position);
-    this._whoseTurn += 1;
+    this._whoseTurnIndex = this._getNextPlayerIndex();
+  }
+
+  _getNextPlayerIndex() {
+    if (this._whoseTurnIndex + 1 >= this._players.length) {
+      return 0;
+    }
+
+    return this._whoseTurnIndex + 1;
   }
 }
