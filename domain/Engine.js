@@ -22,7 +22,7 @@ export default class Engine {
     return this._players;
   }
 
-  whoseTurn() {
+  get whoseTurn() {
     if (!(this._players.size > 0)) {
       throw new Error('There are no players!');
     }
@@ -37,6 +37,10 @@ export default class Engine {
   play(symbol, position) {
     if (!this._players.has(symbol)) {
       throw new Error(`Player '${symbol}' is not registered.`);
+    }
+    
+    if (symbol !== this._whoseTurn) {
+      throw new Error(`It is not Player '${symbol}''s turn!`);
     }
   }
 }
