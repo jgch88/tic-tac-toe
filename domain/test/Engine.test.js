@@ -8,7 +8,7 @@ describe('Engine', () => {
       const engine = new Engine();
       expect(engine.board.length).toBe(9);
     });
-  })
+  });
 
   describe('player registration', () => {
     it('can register players (represented as characters)', () => {
@@ -30,5 +30,14 @@ describe('Engine', () => {
         engine.registerPlayer(123);
       }).toThrow('Players must be represented by strings.');
     });
-  })
+  });
+
+  describe('game in progress', () => {
+    it('cannot show whose turn it is if no players are registered', () => {
+      const engine = new Engine();
+      expect(() => {
+        engine.whoseTurn();
+      }).toThrow('There are no players!');
+    });
+  });
 });

@@ -17,11 +17,11 @@ Domain Interfaces
   - defineWinningFormations(listOfFormations)
   - setShape(shape = 3x3)
   - gameInProgress()
-- GameEngine
-  - has ONE board
+- Engine
+  - DONE - has ONE board
+  - DONE - registerPlayer(symbol) // We don't need to complicate it with Player class, at the end of the day the player's identity/"primary key" IS the symbol. Thoughts: we can only registerPlayers at the beginning?
   - coordinates turns, valid plays, win conditions
   - create/restart board only when !gameInProgress()
-  - register(symbol) // We don't need to complicate it with Player class, at the end of the day the player's identity/"primary key" IS the symbol
   - whoseTurn() // pointer to the current symbol's turn
   - play(symbol, position) // checks it is the correct player's turn
 
