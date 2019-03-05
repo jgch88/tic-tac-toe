@@ -11,6 +11,6 @@ describe('Engine', () => {
   it('can register players (represented as characters)', () => {
     const engine = new Engine();
     engine.registerPlayer('x');
-    expect(engine.players.length).toBe(1);
+    expect(engine.players).toEqual(new Set(['x']));
   });
 });
