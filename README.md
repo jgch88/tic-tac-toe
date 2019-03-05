@@ -16,15 +16,19 @@ Domain Interfaces
   - addPlayer(symbol)
   - defineWinningFormations(listOfFormations)
   - setShape(shape = 3x3)
-- Symbol: character
-- Player
-  - get Id()
-  - play(position)
+  - gameInProgress()
+- GameEngine
+  - has ONE board
+  - coordinates turns, valid plays, win conditions
+  - create/restart board only when !gameInProgress()
+  - register(symbol) // We don't need to complicate it with Player class, at the end of the day the player's identity/"primary key" IS the symbol
+  - whoseTurn() // pointer to the current symbol's turn
+  - play(symbol, position) // checks it is the correct player's turn
 
 View
 - render(board.getAllSymbolPositions())
 
+
 App (Game Engine)
-- Initialises Board: new Board()
-- Add Player to list of players: [new Player()]
-- Lets players play if it is a valid turn/valid player
+- Initialises (multiple?) GameEngines
+- Allows players to join/observe various game engines
