@@ -68,6 +68,13 @@ describe('Engine', () => {
           engine.play('o', 0);
         }).not.toThrow();
       });
+
+      it('board updates after player plays', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        engine.play('o', 0);
+        expect(engine.board[0]).toBe('o');
+      });
     });
   });
 });
