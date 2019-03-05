@@ -33,4 +33,10 @@ export default class Engine {
     
     return this._whoseTurn;
   }
+
+  play(symbol, position) {
+    if (!this._players.has(symbol)) {
+      throw new Error(`Player '${symbol}' is not registered.`);
+    }
+  }
 }
