@@ -85,6 +85,20 @@ describe('Engine', () => {
         engine.play('o', 0);
         expect(engine.whoseTurn).toBe('x');
       });
+
+      it('if the player is at the end of the player list, next turn goes to the first player', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        engine.registerPlayer('x');
+        engine.play('o', 0);
+        expect(engine.whoseTurn).toBe('x');
+        engine.play('x', 0);
+        expect(engine.whoseTurn).toBe('o');
+        engine.play('o', 0);
+        expect(engine.whoseTurn).toBe('x');
+        engine.play('x', 0);
+        expect(engine.whoseTurn).toBe('o');
+      });
     });
   });
 });
