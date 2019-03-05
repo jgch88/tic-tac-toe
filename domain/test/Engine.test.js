@@ -56,6 +56,15 @@ describe('Engine', () => {
           engine.play('x', 0);
         }).toThrow(`Player 'x' is not registered.`);
       });
+
+      it('players can only play when it is their turn', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        engine.registerPlayer('x');
+        expect(() => {
+          engine.play('x', 0);
+        }).toThrow(`It is not Player 'x''s turn!`);
+      });
     });
   });
 });
