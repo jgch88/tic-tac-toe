@@ -4,6 +4,7 @@ export default class Engine {
   constructor() {
     this._board = new Board();
     this._players = new Set([]);
+    this._whoseTurn;
   }
 
   get board() {
@@ -22,6 +23,14 @@ export default class Engine {
   }
 
   whoseTurn() {
-    throw new Error('There are no players!');
+    if (!(this._players.size > 0)) {
+      throw new Error('There are no players!');
+    }
+
+    if (!this._whoseTurn) {
+      this._whoseTurn = this._players.values().next().value;
+    }
+    
+    return this._whoseTurn;
   }
 }

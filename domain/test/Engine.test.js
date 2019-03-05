@@ -46,6 +46,6 @@ describe('Engine', () => {
         engine.registerPlayer('o');
         expect(engine.whoseTurn()).toBe('o');
       });
-    })
+    });
   });
 });
