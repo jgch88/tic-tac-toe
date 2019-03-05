@@ -39,7 +39,7 @@ export default class Engine {
       throw new Error(`Player '${symbol}' is not registered.`);
     }
     
-    if (symbol !== this._whoseTurn) {
+    if (symbol !== this.whoseTurn) {
       throw new Error(`It is not Player '${symbol}''s turn!`);
     }
   }
