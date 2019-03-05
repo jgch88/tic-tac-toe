@@ -3,7 +3,7 @@ import Board from './Board.js';
 export default class Engine {
   constructor() {
     this._board = new Board();
-    this._players = new Set([]);
+    this._players = [];
     this._whoseTurn;
   }
 
@@ -15,27 +15,30 @@ export default class Engine {
     if (typeof symbol !== 'string') {
       throw new Error('Players must be represented by strings.');
     }
-    this._players.add(symbol);
+    if (new Set(this._players).has(symbol)) {
+      throw new Error(`'${symbol}' is already registered.`);
+    }
+    this._players.push(symbol);
   }
 
   get players() {
-    return this._players;
+    return new Set(this._players);
   }
 
   get whoseTurn() {
-    if (!(this._players.size > 0)) {
+    if (!(this.players.size > 0)) {
       throw new Error('There are no players!');
     }
 
     if (!this._whoseTurn) {
-      this._whoseTurn = this._players.values().next().value;
+      this._whoseTurn = this.players.values().next().value;
     }
     
     return this._whoseTurn;
   }
 
   play(symbol, position) {
-    if (!this._players.has(symbol)) {
+    if (!this.players.has(symbol)) {
       throw new Error(`Player '${symbol}' is not registered.`);
     }
     
@@ -44,5 +47,6 @@ export default class Engine {
     }
 
     this._board.placeSymbol(symbol, position);
+    this._whoseTurn = this.players.values().next().value;
   }
 }

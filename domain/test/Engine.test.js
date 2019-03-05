@@ -20,8 +20,10 @@ describe('Engine', () => {
     it('does not register duplicate symbols', () => {
       const engine = new Engine();
       engine.registerPlayer('x');
-      engine.registerPlayer('x');
-      expect(engine.players).toEqual(new Set(['x']));
+      expect(() => {
+        engine.registerPlayer('x');
+      }).toThrow(`'x' is already registered.`);
+      expect(engine._players).toEqual(['x']);
     });
 
     it('only allows strings to be registered', () => {
