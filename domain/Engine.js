@@ -42,5 +42,7 @@ export default class Engine {
     if (symbol !== this.whoseTurn) {
       throw new Error(`It is not Player '${symbol}''s turn!`);
     }
+
+    this._board.placeSymbol(symbol, position);
   }
 }
