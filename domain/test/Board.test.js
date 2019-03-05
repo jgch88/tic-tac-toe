@@ -38,6 +38,14 @@ describe('placeSymbol() preconditions', () => {
       board.placeSymbol('o', 1);
     }).not.toThrow();
   });
+
+  it('position cannot already contain a symbol', () => {
+    const board = new Board();
+    board.placeSymbol('x', 0);
+    expect(() => {
+      board.placeSymbol('x', 0);
+    }).toThrow(`Position 0 already contains the symbol 'x'.`);
+  });
 });
 
 describe('winning conditions', () => {
