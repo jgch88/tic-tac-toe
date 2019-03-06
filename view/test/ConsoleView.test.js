@@ -10,11 +10,11 @@ describe('Console View', () => {
     const consoleView = new ConsoleView();
     consoleView.render(engine.board);
     expect(consoleLog).toBe(
-      `
-      _|_|_
-      _|_|_
-       | |
-      `
+`
+_|_|_|
+_|_|_|
+_|_|_|
+`
     )
   });
 });
