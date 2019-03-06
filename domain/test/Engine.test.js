@@ -108,11 +108,6 @@ describe('Engine', () => {
       engine.registerPlayer('x');
       engine.play('o', 0);
       expect(engine.gameOver).toBe(false);
-      engine.play('x', 3);
-      engine.play('o', 1);
-      engine.play('x', 4);
-      engine.play('o', 2);
-      expect(engine.gameOver).toBe(true);
     });
   });
 });
