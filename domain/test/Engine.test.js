@@ -101,4 +101,18 @@ describe('Engine', () => {
       });
     });
   });
+  describe('game over', () => {
+    it('can check whether the game is over', () => {
+      const engine = new Engine();
+      engine.registerPlayer('o');
+      engine.registerPlayer('x');
+      engine.play('o', 0);
+      expect(engine.gameOver).toBe(false);
+      engine.play('x', 3);
+      engine.play('o', 1);
+      engine.play('x', 4);
+      engine.play('o', 2);
+      expect(engine.gameOver).toBe(true);
+    });
+  });
 });
