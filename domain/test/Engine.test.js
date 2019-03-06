@@ -99,6 +99,20 @@ describe('Engine', () => {
         engine.play('x', 3);
         expect(engine.whoseTurn).toBe('o');
       });
+
+      it('players cannot play when game is over', () => {
+        const engine = new Engine();
+        engine.registerPlayer('o');
+        engine.registerPlayer('x');
+        engine.play('o', 0);
+        engine.play('x', 3);
+        engine.play('o', 1);
+        engine.play('x', 4);
+        engine.play('o', 2);
+        expect(() => {
+          engine.play('x', 5);
+        }).toThrow(`Can't play when the game is over!`);
+      });
     });
   });
   describe('game over', () => {
