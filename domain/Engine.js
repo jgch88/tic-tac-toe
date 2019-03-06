@@ -5,6 +5,7 @@ export default class Engine {
     this._board = new Board();
     this._players = [];
     this._whoseTurnIndex;
+    this._gameOver = false;
   }
 
   get board() {
@@ -35,6 +36,10 @@ export default class Engine {
     }
     
     return this._players[this._whoseTurnIndex];
+  }
+
+  get gameOver() {
+    return this._gameOver;
   }
 
   play(symbol, position) {
