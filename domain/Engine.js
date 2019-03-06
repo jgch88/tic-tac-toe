@@ -51,6 +51,10 @@ export default class Engine {
       throw new Error(`It is not Player '${symbol}''s turn!`);
     }
 
+    if (this.gameOver) {
+      throw new Error(`Can't play when the game is over!`);
+    }
+
     this._board.placeSymbol(symbol, position);
     this._whoseTurnIndex = this._getNextPlayerIndex();
 
