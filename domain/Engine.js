@@ -53,6 +53,10 @@ export default class Engine {
 
     this._board.placeSymbol(symbol, position);
     this._whoseTurnIndex = this._getNextPlayerIndex();
+
+    if (this._board.isWinner(symbol)) {
+      this._gameOver = true;
+    }
   }
 
   _getNextPlayerIndex() {
