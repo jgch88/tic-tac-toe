@@ -102,12 +102,23 @@ describe('Engine', () => {
     });
   });
   describe('game over', () => {
-    it('can check whether the game is over', () => {
+    it('engine starts off with gameOver being falsy', () => {
       const engine = new Engine();
       engine.registerPlayer('o');
       engine.registerPlayer('x');
       engine.play('o', 0);
       expect(engine.gameOver).toBe(false);
+    });
+    it('gameOver is true when player has placed a winning formation', () => {
+      const engine = new Engine();
+      engine.registerPlayer('o');
+      engine.registerPlayer('x');
+      engine.play('o', 0);
+      engine.play('x', 3);
+      engine.play('o', 1);
+      engine.play('x', 4);
+      engine.play('o', 2);
+      expect(engine.gameOver).toBe(true);
     });
   });
 });
