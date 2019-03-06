@@ -23,11 +23,12 @@ Domain Interfaces
   - DONE - get players() // see all registered players
   - DONE - behavior: rotating turns between players
   - DONE - play(symbol, position) // checks it is the correct player's turn
-  - behavior: win conditions
+  - DONE - get gameOver() // behavior: win conditions
   - create/restart board only when !gameInProgress()
 
 View
-- render(board.getAllSymbolPositions())
+- ConsoleView (using console.log terminal)
+  - DONE - render(board.tiles)
 
 
 App (Game Engine)
