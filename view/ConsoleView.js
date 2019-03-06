@@ -18,7 +18,7 @@ export default class ConsoleView {
       }
       lengthCounter += 1;
       outputString += `|`;
-      if (lengthCounter === 3) {
+      if (lengthCounter === length) {
         lengthCounter = 0;
         outputString += `\n`;
       }
