@@ -2,19 +2,19 @@ const height = 3;
 const length = 3;
 
 export default class ConsoleView {
-  constructor() {}
+  constructor() {
+  }
 
   render(board) {
-    // console.log(board);
     let outputString = "\n";
     let heightCounter = 0;
     let lengthCounter = 0;
     for (let tile of board) {
 
-      if (!tile) {
-        outputString += `_`;
-      } else {
+      if (tile || tile === 0) {
         outputString += tile;
+      } else {
+        outputString += `_`;
       }
       lengthCounter += 1;
       outputString += `|`;
@@ -25,4 +25,6 @@ export default class ConsoleView {
     }
     console.log(outputString);
   }
+
+
 }

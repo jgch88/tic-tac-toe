@@ -17,6 +17,21 @@ _|_|_|
 `
     )
   });
+  it('renders board positions correctly', () => {
+    let consoleLog = "";
+    console['log'] = jest.fn((input) => consoleLog = input);
+
+    const engine = new Engine();
+    const consoleView = new ConsoleView();
+    consoleView.render([0,1,2,3,4,5,6,7,8]);
+    expect(consoleLog).toBe(
+`
+0|1|2|
+3|4|5|
+6|7|8|
+`
+    )
+  });
   it('renders a game in progress correctly', () => {
     let consoleLog = "";
     console['log'] = jest.fn((input) => consoleLog = input);

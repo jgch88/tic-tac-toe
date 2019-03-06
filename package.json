@@ -4,7 +4,8 @@
   "description": "An exercise in OOP to see how extensible we can make tic-tac-toe",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "babel-node ./main.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,9 @@
   },
   "homepage": "https://github.com/jgch88/tic-tac-toe#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
