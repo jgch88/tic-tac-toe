@@ -114,9 +114,13 @@ describe('Engine', () => {
       engine.registerPlayer('o');
       engine.registerPlayer('x');
       engine.play('o', 0);
+      expect(engine.gameOver).toBe(false);
       engine.play('x', 3);
+      expect(engine.gameOver).toBe(false);
       engine.play('o', 1);
+      expect(engine.gameOver).toBe(false);
       engine.play('x', 4);
+      expect(engine.gameOver).toBe(false);
       engine.play('o', 2);
       expect(engine.gameOver).toBe(true);
     });
