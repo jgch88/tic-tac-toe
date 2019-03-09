@@ -1,9 +1,11 @@
 import express from 'express';
+import Engine from './domain/Engine.js';
+
+const engine = new Engine();
 
 const app = express();
 app.get('/', (req, res) => {
-  res.status(200);
-  res.send();
+  return res.send();
 });
 
 const server = app.listen(3000, () => {
