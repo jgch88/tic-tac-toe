@@ -48,7 +48,7 @@ export default class ConsoleApp {
       const position = await input(`Place ${player} at which position? \n`);
       if (position) {
         try {
-          this._engine.play(player, position)
+          this._engine.play(player, Number(position));
         } catch (e) {
           console.log(e);
         } finally {
