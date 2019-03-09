@@ -13,12 +13,14 @@ export default class Board {
   }
 
   placeSymbol(symbol, position) {
-    // preconditions:
-    // symbol is a string
-    // position is between 0 and 8
     if (typeof symbol !== 'string') {
       throw new Error('Use a string for a symbol.');
     }
+
+    if (!Number.isInteger(position)) {
+      throw new Error('Position must be an integer.');
+    }
+
     if (position < 0 || position >= boardSize) {
       throw new Error('You can only place symbols at positions 0 to 8.');
     }
