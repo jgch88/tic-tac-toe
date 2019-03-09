@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage --runInBand",
     "start": "babel-node ./main.js",
-    "server": "babel-node ./server.js"
+    "server": "babel-node ./server.js",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@babel/runtime": "^7.3.4",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "cypress": "^3.1.5",
     "jest": "^24.1.0",
     "supertest": "^3.4.2"
   },

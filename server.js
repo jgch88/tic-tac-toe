@@ -36,10 +36,8 @@ app.get('/hardreset', (req, res) => {
   });
 })
 
-/*
 const server = app.listen(3000, () => {
   console.log('App listening on port:', server.address().port);
 })
-*/
 
 module.exports = app;
