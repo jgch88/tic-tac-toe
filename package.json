@@ -4,7 +4,7 @@
   "description": "An exercise in OOP to see how extensible we can make tic-tac-toe",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --runInBand",
     "start": "babel-node ./main.js",
     "server": "babel-node ./server.js"
   },
