@@ -11,6 +11,16 @@ describe('server', () => {
     it('/players returns a JSON array', async () => {
       const response = await request(app).get('/players');
       expect(response.body).toEqual([]);
-    })
+    });
+
+    it('POST /registerPlayer adds a player to the game', async () => {
+      const response = await request(app)
+        .post('/registerplayer')
+        .send({
+          symbol: 'x'
+        })
+        .set('Accept', 'application/json')
+        expect(response.body).toEqual(['x']);
+    });
   });
 });
