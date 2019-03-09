@@ -1,9 +1,13 @@
 import express from 'express';
 
-const server = express();
-server.get('/', (req, res) => {
+const app = express();
+app.get('/', (req, res) => {
   res.status(200);
   res.send();
 });
 
-module.exports = server;
+const server = app.listen(3000, () => {
+  console.log('App listening on port:', server.address().port);
+})
+
+module.exports = app;

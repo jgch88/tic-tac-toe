@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "start": "babel-node ./main.js"
+    "start": "babel-node ./main.js",
+    "server": "babel-node ./server.js"
   },
   "repository": {
     "type": "git",
