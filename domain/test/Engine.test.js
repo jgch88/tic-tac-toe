@@ -7,6 +7,7 @@ describe('Engine', () => {
     it('has a board', () => {
       const engine = new Engine();
       expect(engine.board.length).toBe(9);
+      expect(engine.board).toEqual([null,null,null,null,null,null,null,null,null]);
     });
   });
 
@@ -139,4 +140,26 @@ describe('Engine', () => {
       expect(engine.gameOver).toBe(true);
     });
   });
+
+  describe('hard reset', () => {
+    it('engine clears the board and sets gameOver to false', () => {
+      const engine = new Engine();
+      engine.registerPlayer('o');
+      engine.registerPlayer('x');
+      engine.play('o', 0);
+      expect(engine.gameOver).toBe(false);
+      engine.play('x', 3);
+      expect(engine.gameOver).toBe(false);
+      engine.play('o', 1);
+      expect(engine.gameOver).toBe(false);
+      engine.play('x', 4);
+      expect(engine.gameOver).toBe(false);
+      engine.play('o', 2);
+      expect(engine.gameOver).toBe(true);
+      engine.hardReset();
+      expect(engine.gameOver).toBe(false);
+      expect(engine.board).toEqual([null,null,null,null,null,null,null,null,null]);
+      expect(engine.players).toEqual(new Set([]));
+    })
+  })
 });
