@@ -1,13 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import Engine from './domain/Engine.js';
+import path from 'path';
 
 const engine = new Engine();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
-  return res.send();
+  return res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/players', (req, res) => {
