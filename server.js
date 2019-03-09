@@ -23,6 +23,17 @@ app.post('/registerplayer', (req, res) => {
   return res.send(Array.from(engine.players));
 })
 
+app.get('/hardreset', (req, res) => {
+  try{
+    engine.hardReset();
+  } catch (e) {
+    console.log(e);
+  }
+  return res.send({
+    message: 'Game has reset!'
+  });
+})
+
 const server = app.listen(3000, () => {
   console.log('App listening on port:', server.address().port);
 })
