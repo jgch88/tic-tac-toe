@@ -39,6 +39,13 @@ describe('placeSymbol() preconditions', () => {
     }).not.toThrow();
   });
 
+  it('position must be an integer', () => {
+    const board = new Board();
+    expect(() => {
+      board.placeSymbol('x', 'a');
+    }).toThrow('Position must be an integer.');
+  });
+
   it('position cannot already contain a symbol', () => {
     const board = new Board();
     board.placeSymbol('x', 0);
