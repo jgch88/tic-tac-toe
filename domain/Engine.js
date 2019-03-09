@@ -4,7 +4,7 @@ export default class Engine {
   constructor() {
     this._board = new Board();
     this._players = [];
-    this._whoseTurnIndex;
+    this._whoseTurnIndex = null;
     this._gameOver = false;
   }
 
@@ -61,6 +61,13 @@ export default class Engine {
     if (this._board.isWinner(symbol)) {
       this._gameOver = true;
     }
+  }
+
+  hardReset() {
+    this._board = new Board();
+    this._players = [];
+    this._whoseTurnIndex = null;
+    this._gameOver = false;
   }
 
   _getNextPlayerIndex() {
