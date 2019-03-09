@@ -13,6 +13,26 @@ describe('server', () => {
       expect(response.body).toEqual([]);
     });
 
+    describe('/hardreset', async () => {
+      await request(app)
+        .post('/registerplayer')
+        .send({
+          symbol: 'x'
+        })
+        .set('Accept', 'application/json')
+      let response = await request(app).get('/players');
+      expect(response.body).toEqual(['x']);
+
+      response = await request(app).get('/hardreset');
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual({
+        message: 'Game has reset!',
+      });
+
+      response = await request(app).get('/players');
+      expect(response.body).toEqual([]);
+    })
+
     describe('POST /registerPlayer', () => {
       it('can add a player to the game', async () => {
         const response = await request(app)
