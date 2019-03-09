@@ -13,14 +13,33 @@ describe('server', () => {
       expect(response.body).toEqual([]);
     });
 
-    it('POST /registerPlayer adds a player to the game', async () => {
-      const response = await request(app)
-        .post('/registerplayer')
-        .send({
-          symbol: 'x'
-        })
-        .set('Accept', 'application/json')
+    describe('POST /registerPlayer', () => {
+      it('can add a player to the game', async () => {
+        const response = await request(app)
+          .post('/registerplayer')
+          .send({
+            symbol: 'x'
+          })
+          .set('Accept', 'application/json')
         expect(response.body).toEqual(['x']);
+      });
+
+      it('adding two players of the same symbol shows an error', async () => {
+        const response = await request(app)
+          .post('/registerplayer')
+          .send({
+            symbol: 'o'
+          })
+          .set('Accept', 'application/json')
+        expect(response.body).toEqual(['o']);
+        const error = await request(app)
+          .post('/registerplayer')
+          .send({
+            symbol: 'o'
+          })
+          .set('Accept', 'application/json')
+        expect(error.statusCode).toBe(409);
+      });
     });
   });
 });
