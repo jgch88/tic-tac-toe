@@ -7,9 +7,9 @@ const engine = new Engine();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.get('/', (req, res) => {
-  return res.sendFile(__dirname + '/index.html');
+  return res.sendFile(__dirname, 'build', '/index.html');
 });
 
 app.get('/players', (req, res) => {
